@@ -1,89 +1,136 @@
+:root {
+  --color-bg: #f0f0f0;
+  --color-purple: #864cff;
+  --color-light-gray: #dbdbdbff;
+  --color-gray: #8a8a8a;
+  --color-black: #151515;
+  --color-white: #ffffff;
+  --color-red: #ff5757ff;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+  --font-weight-extra-bold: 800;
+}
+
 * {
-  margin: 0;
-  padding: 0;
-}
-*,
-*::after,
-*::before {
   box-sizing: border-box;
+  margin: 0;
 }
-html {
-  font-size: 62.5%;
-}
-body {
-  font-family: "Kanit", sans-serif;
-  font-weight: 400;
-  font-size: 1.6rem;
-}
+
 .container {
-  width: 100vw;
-  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background: rgb(238, 174, 202);
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+}
+
+.card {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 10px;
+  padding: 30px;
+  background: var(--color-white);
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.card__form {
+  display: flex;
+  gap: 15px;
+}
+
+.card__inputContainer {
+  flex: 1;
+}
+
+.card__label {
+  display: block;
+  font-weight: var(--font-weight-bold);
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: var(--color-gray);
+  margin-bottom: 5px;
+}
+
+.card__input {
+  padding: 10px;
+  border: 1px solid var(--color-light-gray);
+  border-radius: 4px;
+  width: 100%;
+  font-size: 20px;
+  font-weight: var(--font-weight-bold);
+  outline: none;
+  transition: all 0.3s;
+}
+
+.card__input:focus {
+  border-color: var(--color-purple);
+}
+
+.card__input--error {
+  border-color: var(--color-red);
+}
+
+.card__errorMessage {
+  display: block;
+  font-size: 10px;
+  font-style: italic;
+  color: var(--color-red);
+  margin-top: 5px;
+  font-weight: var(--font-weight-regular);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.card__input--error + .card__errorMessage {
+  opacity: 1;
+  visibility: visible;
+}
+
+.card__separator {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.container::before {
-  z-index: -1;
-  background: rgb(142, 74, 224);
-  background: radial-gradient(
-    circle,
-    rgba(142, 74, 224, 1) 5%,
-    rgba(0, 223, 255, 1) 100%
-  );
-  position: absolute;
-  content: "";
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-.card {
-  padding: 1.2rem 2rem;
-  background-color: #fff;
-  border-radius: 1.2rem;
-  text-align: center;
-}
-.card__inputs {
-  display: flex;
-  gap: 1.2rem;
-}
-.card__inputs-item {
-  display: flex;
-  color: #343a40;
-  flex-direction: column;
-  label {
-    text-align: start;
-  }
-  input {
-    padding: 1rem;
-    border-radius: 0.6rem;
-    background-color: #f1f3f5;
-    border: none;
-    outline: none;
-    margin-top: 0.5rem;
-  }
-}
-.calc-btn {
-  position: relative;
-  margin: 3rem 0;
-  font-size: 4rem;
-  font-weight: bold;
-  padding: 1.2rem 2.4rem;
-  border-radius: 0.6rem;
-  border: none;
-  background-color: rgba(142, 74, 224, 1);
-  color: #fff;
-  transition: 0.3s;
-  cursor: pointer;
-  &:hover {
-    background-color: rgba(142, 74, 224, 90%);
-  }
+  margin: 30px 0;
 }
 
-.card__text {
-  font-size: 3rem;
+.card__separator:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: var(--color-light-gray);
 }
-.age {
-  color: rgba(142, 74, 224, 1);
+
+.card__button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background: var(--color-purple);
+  color: var(--color-white);
+  font-size: 16px;
+  font-weight: var(--font-weight-bold);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.card__result {
+  font-size: 36px;
+  font-weight: var(--font-weight-extra-bold);
+  font-style: italic;
+  text-align: center;
+}
+
+.card__resultValue {
+  font-size: 36px;
+  /*font-weight: var(--font-weight-bold);*/
+  color: var(--color-purple);
 }
