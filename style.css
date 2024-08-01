@@ -11,6 +11,8 @@ html {
   font-size: 62.5%;
 }
 body {
+  font-family: "Kanit", sans-serif;
+  font-weight: 400;
   font-size: 1.6rem;
 }
 .container {
@@ -44,8 +46,44 @@ body {
 }
 .card__inputs {
   display: flex;
+  gap: 1.2rem;
 }
 .card__inputs-item {
   display: flex;
+  color: #343a40;
   flex-direction: column;
+  label {
+    text-align: start;
+  }
+  input {
+    padding: 1rem;
+    border-radius: 0.6rem;
+    background-color: #f1f3f5;
+    border: none;
+    outline: none;
+    margin-top: 0.5rem;
+  }
+}
+.calc-btn {
+  position: relative;
+  margin: 3rem 0;
+  font-size: 4rem;
+  font-weight: bold;
+  padding: 1.2rem 2.4rem;
+  border-radius: 0.6rem;
+  border: none;
+  background-color: rgba(142, 74, 224, 1);
+  color: #fff;
+  transition: 0.3s;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(142, 74, 224, 90%);
+  }
+}
+
+.card__text {
+  font-size: 3rem;
+}
+.age {
+  color: rgba(142, 74, 224, 1);
 }
