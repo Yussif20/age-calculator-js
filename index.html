@@ -3,7 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
     <title>Age Calculator</title>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <div class="card">
+        <div class="card__inputs">
+          <div class="card__inputs-item">
+            <label for="day">Day</label>
+            <input type="number" id="day" />
+            <p class="error message"></p>
+          </div>
+          <div class="card__inputs-item">
+            <label for="day">Month</label>
+            <input type="number" id="day" />
+            <p class="error message"></p>
+          </div>
+          <div class="card__inputs-item">
+            <label for="day">Year</label>
+            <input type="number" id="day" />
+            <p class="error message"></p>
+          </div>
+        </div>
+        <button>Calculate</button>
+        <p>You Are <span class="age"></span> Years Old</p>
+      </div>
+    </div>
+    <script src="/script.js"></script>
+  </body>
 </html>
