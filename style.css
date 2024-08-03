@@ -1,6 +1,7 @@
 :root {
   --color-bg: #f0f0f0;
   --color-purple: #864cff;
+  --color-light-purple: rgb(134, 76, 255, 80%);
   --color-light-gray: #dbdbdbff;
   --color-gray: #8a8a8a;
   --color-black: #151515;
@@ -120,6 +121,9 @@
   cursor: pointer;
   transition: all 0.3s ease;
   z-index: 1;
+  &:hover {
+    background-color: var(--color-light-purple);
+  }
 }
 
 .card__result {
@@ -131,6 +135,6 @@
 
 .card__resultValue {
   font-size: 36px;
-  /*font-weight: var(--font-weight-bold);*/
+  font-weight: var(--font-weight-bold);
   color: var(--color-purple);
 }
