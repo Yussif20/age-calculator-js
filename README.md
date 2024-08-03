@@ -17,7 +17,7 @@ This Age Calculator app allows users to input their birth date and calculate the
 
 ### Links
 
-- Live Site URL: [live site url](https://yussif20.github.io/age-calculator-js/)
+- [Age Calculator App](https://yussif20.github.io/age-calculator-js/)
 
 ## Technologies Used
 
