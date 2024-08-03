@@ -2,34 +2,48 @@
 
 const inputElements = document.querySelectorAll(".card__input");
 const submitButton = document.querySelector(".card__button");
-const ageLabel =document.querySelector(".card__resultValue");
-let age ;
 
 
 const onClickHandler = ()=>{
-    console.log("you clicked me")
+    const dayElement = document.querySelector(".card__input[name ='day']");
+    const monthElement = document.querySelector(".card__input[name ='month']");
+    const yearElement = document.querySelector(".card__input[name ='year']");
+    const ageLabel =document.querySelector(".card__resultValue");
+
+    ageLabel.textContent = calculateAge(yearElement.value,monthElement.value,dayElement.value)
+    
 }
 const calculateAge =(year=2001,month=6,day=1)=>{
-    const currentMonth = (new Date().getMonth() + 1);
-    const currentYear = new Date().getFullYear();
-    const today = new Date().getDate();
-    console.log(typeof(day))
-    console.log(typeof(currentMonth));
-    console.log(typeof(currentYear));
-    console.log(typeof(year));
+    const birthDate = new Date(year,month -1,day);
+    const today = new Date(); 
 
-    if(today >= day && currentMonth >= month){
-         age =currentYear - parseInt(year);
-         console.log(age)
+    const currentMonth = today.getMonth();
+    const currentDay = today.getDate();
+    const currentYear = today.getFullYear();
+
+    const birthDay = birthDate.getDate();
+    const birthMonth =birthDate.getMonth();
+    const birthYear =birthDate.getFullYear();
+
+    let age = currentYear -birthYear;
+
+    // const currentMonth = (new Date().getMonth() + 1);
+    // const currentYear = new Date().getFullYear();
+    // const today = new Date().getDate();
+    // console.log(typeof(day))
+    // console.log(typeof(currentMonth));
+    // console.log(typeof(currentYear));
+    // console.log(typeof(year));
+
+    if(currentDay >= birthDay && currentMonth >=birthMonth){
+        age =age;
     }else{
-        age =currentYear - parseInt(year) -1;
-        console.log(age)
-
+       age--;
     }
-    ageLabel.textContent = age   
+    return age  
 }
 
-submitButton.addEventListener("click",calculateAge)
+submitButton.addEventListener("click",onClickHandler)
 // const result =document.querySelector(".card__resultValue")
 // const calcButton = document.querySelector(".card__button")
 // const yearInput = document.querySelector("#year")
@@ -43,4 +57,4 @@ submitButton.addEventListener("click",calculateAge)
 //     result.textContent = age
 // }
 
-// calcButton.addEventListener("click",calcAge)
+// calcButton.addEventListener("click",calcAge) 
