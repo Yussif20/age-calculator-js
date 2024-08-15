@@ -1,25 +1,20 @@
-// pure functions      -     functional programming
-
-const inputElements = document.querySelectorAll(".card__input");
-const submitButton = document.querySelector(".card__button");
-
-const validateDay=(day)=>{
+export const validateDay=(day)=>{
     if(day && day > 0 && day <= 31){
         return true
     }
 }
-const validateMonth=(month)=>{
+export const validateMonth=(month)=>{
     if(month && month > 0 && month <= 12){
         return true
     }
 }
-const validateYear=(year)=>{
+export const validateYear=(year)=>{
     const currentYear = new Date().getFullYear()
     if(year && year > 0 && year <= currentYear){
         return true
     }
 }
-const isDataValid =(dayElement,monthElement,yearElement)=>{
+export const isDataValid =(dayElement,monthElement,yearElement)=>{
     const isValid = [false,false,false];
 
     if(!validateDay(dayElement.value)){
@@ -45,22 +40,7 @@ const isDataValid =(dayElement,monthElement,yearElement)=>{
     return isValid.every(item => item ===true)
 }
 
-
-
-
-const onClickHandler = ()=>{
-    const dayElement = document.querySelector(".card__input[name ='day']");
-    const monthElement = document.querySelector(".card__input[name ='month']");
-    const yearElement = document.querySelector(".card__input[name ='year']");
-    const ageLabel =document.querySelector(".card__resultValue");
-
-    if(!isDataValid(dayElement,monthElement,yearElement)){
-        ageLabel.textContent = "--"
-        return;
-    }
-    ageLabel.textContent = calculateAge(yearElement.value,monthElement.value,dayElement.value)   
-}
-const calculateAge =(year,month,day)=>{
+export const calculateAge =(year,month,day)=>{
     const birthDate = new Date(year,month-1,day);
     const today = new Date(); 
 
@@ -78,8 +58,3 @@ const calculateAge =(year,month,day)=>{
 
     return age  
 }
-
-submitButton.addEventListener("click",onClickHandler)
-inputElements.forEach((el)=>{
-    el.addEventListener("keypress",event=>event.key ==="Enter" && onClickHandler())
-})
